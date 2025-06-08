@@ -1,5 +1,6 @@
 package sample.cafekiosk.unit;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
 import sample.cafekiosk.unit.beverage.Latte;
@@ -21,6 +22,8 @@ class CafeKioskTest {
         System.out.println(">>> 담긴 음료 : " + cafeKiosk.getBeverages().get(0).getName());
     }
 
+    //    @DisplayName("음료 1개 추가 테스트") 와 같은 테스트는 지양하기
+    @DisplayName("음료 1개를 추가하면 주문 목록에 담긴다.")
     @Test
     void add() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -78,8 +81,10 @@ class CafeKioskTest {
 
     }
 
+    @DisplayName("주문 목록에 담긴 상품들의 총 금액을 계산할 수 있다.")
     @Test
     void calculateTotalPrice() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
         Latte latte = new Latte();
@@ -87,8 +92,10 @@ class CafeKioskTest {
         cafeKiosk.add(americano);
         cafeKiosk.add(latte);
 
+        // when
         int totalPrice = cafeKiosk.calculateTotalPrice();
 
+        // then
         assertThat(totalPrice).isEqualTo(8500);
     }
 
@@ -126,5 +133,5 @@ class CafeKioskTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요.");
     }
-
+    
 }
