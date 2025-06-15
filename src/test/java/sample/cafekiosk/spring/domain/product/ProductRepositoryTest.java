@@ -15,7 +15,7 @@ import static sample.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
 @ActiveProfiles("test")
 //@SpringBootTest
-@DataJpaTest    // @Transactional 유무의 차이. (DataJpaTest 에는 있음.)
+@DataJpaTest    // @Transactional 유무의 차이. (DataJpaTest 에는 있음)
 class ProductRepositoryTest {
 
     @Autowired
