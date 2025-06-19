@@ -1,8 +1,6 @@
 package sample.cafekiosk.spring.api.service.product;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -29,6 +27,21 @@ class ProductServiceTest {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @BeforeAll
+    static void beforeAll() {
+        // before class
+    }
+
+    @BeforeEach
+    void setUp() {
+        // before method
+        // 테스트 결합도 문제가 발생할 수 있기 때문에 가급적 지양하는 것이 좋음.
+        // but,
+        // 각 테스트 입장에서 봤을 때, 해당 내용을 몰라도 테스트 내용을 이해하는 데에 문제가 없는가?
+        // 수정하더라도 모든 테스트에 영향을 주지 않는가?
+        // 위 조건들을 만족한다면, 사용을 고려해 볼 수 있다. ✅
+    }
 
     @AfterEach
     void tearDown() {
@@ -68,7 +81,7 @@ class ProductServiceTest {
 
     @DisplayName("상품이 하나도 없는 경우, 신규상품을 등록하면 상품번호는 001이다.")
     @Test
-    void craeteProductWhenProductIsEmpty() {
+    void createProductWhenProductIsEmpty() {
         // given
         ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
             .type(HANDMADE)
