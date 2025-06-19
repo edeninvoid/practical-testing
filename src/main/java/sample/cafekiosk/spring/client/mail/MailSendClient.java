@@ -9,9 +9,19 @@ public class MailSendClient {
 
     public boolean sendEmail(String fromEmail, String toEmail, String subject, String content) {
         log.info("메일 전송");
-        log.info("fromEmail: {}, toEmail: {}, subject: {}, content: {}", fromEmail, toEmail, subject, content);
         throw new IllegalArgumentException("메일 전송");
-//        return true;
     }
 
+    public void a() {
+        log.info("a");
+    }
+
+    public void b() {
+        log.info("b");
+    }
+
+    public void c() {
+        log.info("c");
+    }
+    
 }
