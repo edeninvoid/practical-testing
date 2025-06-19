@@ -169,9 +169,9 @@ class OrderServiceTest {
         Product product3 = createProduct(HANDMADE, "003", 5000);
         productRepository.saveAll(List.of(product1, product2, product3));
 
-        Stock stock1 = Stock.create("001", 2);
+        Stock stock1 = Stock.create("001", 1);
         Stock stock2 = Stock.create("002", 2);
-        stock1.deductQuantity(1);   // todo
+//        stock1.deductQuantity(1);   // given 단계에서 테스트가 영향을 받아서는 안 된다. (테스트 환경의 독립성)
         stockRepository.saveAll(List.of(stock1, stock2));
 
         OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
