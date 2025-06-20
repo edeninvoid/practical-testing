@@ -33,13 +33,15 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-
     // lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
     // h2
     runtimeOnly 'com.h2database:h2'
+
+    // Guava
+    implementation("com.google.guava:guava:33.4.8-jre")
 }
 
 tasks.named('test') {
